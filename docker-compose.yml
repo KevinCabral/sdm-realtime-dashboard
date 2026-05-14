@@ -22,7 +22,7 @@ services:
     environment:
       POSTGRES_DB: election
       POSTGRES_USER: election_user
-      POSTGRES_PASSWORD: change_me
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
 

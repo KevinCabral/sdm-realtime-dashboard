@@ -14,6 +14,16 @@ from services.security import authenticate_request, authorize_access
 
 setup_audit_logging()
 turnout_service = TurnoutService()
+TABLE_DATA_FIELDS = [
+    "voter_id",
+    "full_name",
+    "polling_station",
+    "region",
+    "has_voted",
+    "voted_at",
+    "validation_status",
+]
+TABLE_COLUMNS = [{"name": column, "id": column} for column in TABLE_DATA_FIELDS]
 
 app = dash.Dash(
     __name__,
@@ -80,15 +90,7 @@ app.layout = dbc.Container(
                     filter_action="none",
                     style_table={"overflowX": "auto"},
                     style_cell={"textAlign": "left"},
-                    columns=[
-                        {"name": "voter_id", "id": "voter_id"},
-                        {"name": "full_name", "id": "full_name"},
-                        {"name": "polling_station", "id": "polling_station"},
-                        {"name": "region", "id": "region"},
-                        {"name": "has_voted", "id": "has_voted"},
-                        {"name": "voted_at", "id": "voted_at"},
-                        {"name": "validation_status", "id": "validation_status"},
-                    ],
+                    columns=TABLE_COLUMNS,
                 ),
                 html.Div(id="last-updated", className="last-updated mt-2 mb-4"),
             ],
@@ -190,17 +192,7 @@ def refresh_dashboard(
         region_fig = px.bar(region_counts, x="region", y="votes", title="Votes by Region / Municipality")
         trend_fig = px.line(trend, x="hour", y="votes", markers=True, title="Hourly Voting Trend")
 
-        table_data = filtered[
-            [
-                "voter_id",
-                "full_name",
-                "polling_station",
-                "region",
-                "has_voted",
-                "voted_at",
-                "validation_status",
-            ]
-        ].copy()
+        table_data = filtered[TABLE_DATA_FIELDS].copy()
         table_data["voted_at"] = table_data["voted_at"].apply(
             lambda value: value.strftime("%Y-%m-%d %H:%M:%S") if pd.notna(value) else ""
         )

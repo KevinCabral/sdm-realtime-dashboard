@@ -42,7 +42,7 @@ class TurnoutService:
         return df
 
     def _simulate_updates(self) -> None:
-        not_voted_idx = self._data.index[self._data["has_voted"] == False]  # noqa: E712
+        not_voted_idx = self._data.index[~self._data["has_voted"]]
         if len(not_voted_idx) == 0:
             self._last_updated = datetime.utcnow()
             return
