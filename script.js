@@ -81,7 +81,9 @@ function withComputedFields(row) {
 }
 
 function uniqueValues(rows, key) {
-  return [...new Set(rows.map((item) => item[key]))].sort((a, b) => a.localeCompare(b));
+  return [...new Set(rows.map((item) => item[key]))].sort((a, b) =>
+    String(a).localeCompare(String(b), undefined, { numeric: true, sensitivity: "base" })
+  );
 }
 
 function fillSelect(selectElement, values, selectedValue = "Todos") {
