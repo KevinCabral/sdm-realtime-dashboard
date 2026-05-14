@@ -1,0 +1,13 @@
+.metric-title {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.metric-value {
+  margin-bottom: 0;
+}
+
+.last-updated {
+  color: #6c757d;
+  font-size: 0.9rem;
+}

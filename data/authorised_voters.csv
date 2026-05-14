@@ -1,0 +1,11 @@
+voter_id,full_name,polling_station,region,has_voted,voted_at,validation_status
+V0001,Ana Costa,Station 1,North,true,2026-05-14 08:10:00,validated
+V0002,Bruno Lima,Station 2,South,false,,not_voted
+V0003,Carla Souza,Station 3,East,true,2026-05-14 09:35:00,pending_validation
+V0004,Diego Alves,Station 4,West,false,,not_voted
+V0005,Elisa Rocha,Station 5,North,true,2026-05-14 10:12:00,validated
+V0006,Felipe Nunes,Station 1,South,false,,not_voted
+V0007,Gabriela Melo,Station 2,East,true,2026-05-14 10:22:00,validated
+V0008,Henrique Dias,Station 3,West,false,,not_voted
+V0009,Isabela Araujo,Station 4,North,false,,not_voted
+V0010,Joao Pinto,Station 5,South,true,2026-05-14 11:03:00,pending_validation
