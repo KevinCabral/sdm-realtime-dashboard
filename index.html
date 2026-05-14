@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Edital</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Edital</h1>
+
+      <section class="filters">
+        <label>
+          Concelho
+          <select id="concelhoFilter"></select>
+        </label>
+        <label>
+          Zona
+          <select id="zonaFilter"></select>
+        </label>
+        <label>
+          Mesa
+          <select id="mesaFilter"></select>
+        </label>
+      </section>
+
+      <section class="table-wrap">
+        <table id="resultsTable">
+          <thead>
+            <tr>
+              <th>Concelho</th>
+              <th>Zona</th>
+              <th>Mesa</th>
+              <th>Inscritos</th>
+              <th>Votantes</th>
+              <th>MpD</th>
+              <th>PAICV</th>
+              <th>UCID</th>
+              <th>PTS</th>
+              <th>PP</th>
+              <th>Brancos</th>
+              <th>Nulos</th>
+              <th>Total boletins iniciais</th>
+              <th>Total boletins inutilizados</th>
+              <th>Total boletins restantes</th>
+              <th>Total boletins utilizados</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr id="totalsRow"></tr>
+          </tfoot>
+        </table>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
